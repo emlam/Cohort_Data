@@ -13,10 +13,16 @@ def unique_houses(filename):
             ])
 
     """
-
     houses = set()
 
-    # Code goes here
+    cohort_data = open("cohort_data.txt")
+    for line in cohort_data:
+        student_data = line.split("|") 
+        houses.add(student_data[2])
+
+    cohort_data.close()
+
+    houses.remove("")
 
     return houses
 
@@ -148,7 +154,7 @@ def find_house_members_by_student_name(student_list):
 
 # Here is some useful code to run these functions!
 
-# print unique_houses("cohort_data.txt")
+print unique_houses("cohort_data.txt")
 # print sort_by_cohort("cohort_data.txt")
 # print students_by_house("cohort_data.txt")
 # all_students_data = all_students_tuple_list("cohort_data.txt")
